@@ -23,10 +23,10 @@ Contains (*C and C++ reference*). Here is how I plan to design these five operat
 ### Insert
 
 The `Insert` operation will take a key and a value then attempt to add the pair to the MultiSet. If the key is not
-already contained in the MultiSet it will be inserted as a new node. If the pair is already contained in the tree, the
-value of the attempted insertion will be added to the value of the existing node. This functionality will allow a player
-to have a dedicated spot for each kind of item in their inventory, and a number to show the quantity of each individual
-item.
+already contained in the MultiSet it will be inserted as a new node using the AVLTree's insert operation. If the pair is
+already contained in the tree, the value of the attempted insertion will be added to the value of the existing node.
+This functionality will allow a player to have a dedicated spot for each kind of item in their inventory, and a number
+to show the quantity of each individual item.
 
 ```
 multiSetInsert(key, value) {
@@ -42,8 +42,9 @@ multiSetInsert(key, value) {
 ### Erase
 
 The `Erase` operation will take a key and value then if the pair is present in the MultiSet the value will be decreased
-by the specified amount. If the value of a pair is brought down to zero the node will be deleted entirely. This 
-functionality will allow items to be removed from a player's inventory in a similar way to adding them.
+by the specified amount. If the value of a pair is brought down to zero the node will be deleted entirely using the
+AVLTree's remove operation. This functionality will allow items to be removed from a player's inventory in a similar way
+to adding them.
 
 ```
 multiSetErase(key, value) {
@@ -57,7 +58,8 @@ multiSetErase(key, value) {
 ### Size
 
 The `Size` operation will add all the values of each key pair together to find the total number of items contained in
-the MultiSet. This functionality will allow the overall number of items in a player's inventory to be easily obtained.
+the MultiSet. The keys will be obtained with the AVLTree's keys operation and those keys will be fed into the AVLTree's
+get operation. This functionality will allow the overall number of items in a player's inventory to be easily found.
 
 ```
 multiSetSize() {
@@ -65,7 +67,7 @@ multiSetSize() {
     make an string vector called items
     fill the items vector using AVLTreeKeys
         for each key pair in the AVLTree {
-            get the value of the key at the current loop itteration index of the items vector
+            get the value of the key at the current loop itteration index of the items vector with AVLTreeGet
             add the gotten value to the total
         }
     return the total
@@ -74,18 +76,30 @@ multiSetSize() {
 
 ### Find
 
-
+The `Find` operation will search the MultiSet for a specific key and return the value associated with it using the
+AVLTree's get operation. If the key is found in the tree the key pair's value will be returned, but if it isn't found an
+exception will be thrown. This functionality will allow the number of specific items in an inventory to be easily found.
 
 ```
-
+multiSetFind(key) {
+    make a new size_t called result
+    use AVLTreeGet to find the value and set result to that value
+    return result
+}
 ```
 
 ### Contains
 
-
+The `Contains` operation will search the MultiSet for a specific key using the AVLTree contains operation and return a
+boolean. If the key was found the boolean will be true and if it wasn't found the boolean will be false. This 
+functionality will allow for checking if an inventory contains a specific item.
 
 ```
-
+multiSetContains(key) {
+    make a new boolean called result
+    use AVLTreeContains to check for the key and set result accordingly
+    return result
+}
 ```
 
 ## Set Operations
