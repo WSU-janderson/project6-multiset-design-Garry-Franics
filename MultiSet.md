@@ -3,8 +3,8 @@
 
 This document details the design of my MultiSet ADT. A MultiSet is a collection of elements in which elements are able
 to be repeated (Blizard *Multiset Theory*). My design is for a video game inventory that stores string item names and
-size_t counts. It will be built on a AVLTree<string, size_t>. The string (otherwise called the key) will be the name of
-the item being affected in the inventory and the size_t (otherwise called the value) will be how many of that item is
+size_t counts. It will be built on a `AVLTree<string, size_t>`. The string (otherwise called the key) will be the name
+of the item being affected in the inventory and the size_t (otherwise called the value) will be how many of that item is
 being affected.
 
 ## Design Philosophy
@@ -184,11 +184,17 @@ removeN() {
 ```
 
 ## UML Diagram
-<!-- this should be a comment -->
-| "MultiSet"                                                                                                                                                                                                                                                                                                                                                                     |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| -Set: AVLTree                                                                                                                                                                                                                                                                                                                                                                  |
+<!-- I know the bottom line of this looks HORRIBLE, but it makes the actual table look perfect so just bear with me -->
+| MultiSet                                                                                                                                                                                                                                                                                                                                                                     |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -Set: AVLTree                                                                                                                                                                                                                                                                                                                                                                |
 | -Insert(key: string, value: size_t): void <br/> +Erase(key: string, value: size_t): void <br/> +Size(): size_t <br/> +Find(key: string): size_t <br/> +Contains(key: string): boolean <br/> +intersectionWith(multiSet1: MultiSet, multiSet2: MultiSet): vector<string> <br/> +differenceWith(multiSet1: MultiSet, multiSet2: MultiSet): vector<string> <br/> -removeN(): void | 
+
+This is my UML diagram for the MultiSet class. It has the AVLTree that is working as the base and every operation that
+has been discussed. I will now go over why I made each member public or private
+
+- Set: AVL Tree
+words here?
 
 ## Trade-off Analysis
 
