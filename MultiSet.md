@@ -185,9 +185,10 @@ multiSetRemoveN() {
 
 ## UML Diagram
 
-| "MultiSet" |
-|------------|
-|is this anything?|
+| "MultiSet"            |
+|-----------------------|
+| is this anything?     |
+| okay its looking good |
 
 ## Trade-off Analysis
 
