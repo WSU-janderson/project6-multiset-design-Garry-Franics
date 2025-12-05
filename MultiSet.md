@@ -245,6 +245,16 @@ above.
 
 ## Trade-off Analysis
 
+|            | AVLTree | Sequence |
+|:-----------|:-------:|:--------:|
+| Complexity |  More   |   Less   |
+| Speed      | Faster  |  Slower  |
+| Insert     | Log~2~N |          |
+| Erase      | Log~2~N |          |
+| Size       | Log~2~N |          |
+| Find       | Log~2~N |          |
+| Contains   | Log~2~N |          |
+
 ## Alternative Design
 
 ## Evaluation Plan
