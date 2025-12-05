@@ -187,8 +187,6 @@ multiSetRemoveN() {
 
 | "MultiSet" |
 |------------|
-|------------|
-|------------|
 
 ## Trade-off Analysis
 
