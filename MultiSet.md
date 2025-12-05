@@ -194,7 +194,54 @@ This is my UML diagram for the MultiSet class. It has the AVLTree that is workin
 has been discussed. I will now go over why I made each member public or private
 
 - Set: AVL Tree
-words here?
+
+This is private because there is no reason that any player should be able to directly interface with the AVLTree. If 
+they could, they could do anything they wanted to their inventory.
+
+- Insert
+
+This is private for the same reasons as the general tree. If players had free access to insert they could give 
+themselves anything and everything they wanted.
+
+- Erase
+
+I decided to make this public because I can't really see being able to remove your own items at will causing any 
+problems.
+
+- Size
+
+Made this one public because a player should be able to know this. It's one of the main reasons this operation would 
+even exist.
+
+- Find
+
+This one is public because, again, a player should be able to search their own inventory. One of the main reasons this
+exists is to be used by players.
+
+- Contains 
+
+This is public because while I can't think of a SPECIFIC reason someone would use this over find to locate something in
+their inventory, I also can't see any way having the option could end badly.
+
+- intersectionWith
+
+This is public because I imagine this being used by players during a trading interaction and maybe while looting 
+something. Both of these are something they control so they would need access.
+
+- differenceWith
+
+Just like intersectionWith this would be used during either trading or looting. So it would have to be public.
+
+- removeN
+
+Now this one is private unlike erase because I included it SPECIFICALLY with the idea that it would trigger on a player 
+being defeated by something. Therefore, I can't imagine a situation where a player would manually activate this, so they
+can't manually activate it.
+
+No AVLTree operations are shown because this isn't the AVLTree UML. They don't belong here so they aren't here. Also, I
+just thought I could mention that my general throughline to deciding whether something should be private or public is if
+it allows the MultiSet to be modified then its private. The only exception to that rule is Erase for the reasons said
+above.
 
 ## Trade-off Analysis
 
