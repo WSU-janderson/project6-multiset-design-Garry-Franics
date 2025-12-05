@@ -188,7 +188,8 @@ multiSetRemoveN() {
 | "MultiSet"            |
 |-----------------------|
 | is this anything?     |
-| okay its looking good |
+| --------------------- |
+| well does this work?  |
 
 ## Trade-off Analysis
 
