@@ -185,11 +185,10 @@ multiSetRemoveN() {
 
 ## UML Diagram
 
-| "MultiSet"            |
-|-----------------------|
-| is this anything?     |
-| --------------------- |
-| well does this work?  |
+| "MultiSet"                            |
+|---------------------------------------|
+| -Set: AVLTree                         |
+| -Insert(key, value): void<br/>test??? | 
 
 ## Trade-off Analysis
 
