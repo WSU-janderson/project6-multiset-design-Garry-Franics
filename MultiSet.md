@@ -29,7 +29,7 @@ This functionality will allow a player to have a dedicated spot for each kind of
 to show the quantity of each individual item.
 
 ```
-multiSetInsert(key, value) {
+insert(key, value) {
     Check if the key pair is already in the tree with AVLTree contains method {
         If it is, set the key pair's value to currentValue + value
     }
@@ -47,7 +47,7 @@ AVLTree's remove operation. This functionality will allow items to be removed fr
 to adding them.
 
 ```
-multiSetErase(key, value) {
+erase(key, value) {
     Change the key pair value to currentValue - value
     If the value becomes zero {
         Use AVLTreeRemove to remove the key pair node from the tree
@@ -62,7 +62,7 @@ the MultiSet. The keys will be obtained with the AVLTree's keys operation and th
 get operation. This functionality will allow the overall number of items in a player's inventory to be easily found.
 
 ```
-multiSetSize() {
+size() {
     make a new size_t called total
     make an string vector called items
     fill the items vector using AVLTreeKeys
@@ -81,7 +81,7 @@ AVLTree's get operation. If the key is found in the tree the key pair's value wi
 exception will be thrown. This functionality will allow the number of specific items in an inventory to be easily found.
 
 ```
-multiSetFind(key) {
+find(key) {
     make a new size_t called result
     use AVLTreeGet to find the value and set result to that value
     return result size_t
@@ -95,7 +95,7 @@ boolean. If the key was found the boolean will be true and if it wasn't found th
 functionality will allow for checking if an inventory contains a specific item.
 
 ```
-multiSetContains(key) {
+contains(key) {
     make a new boolean called result
     use AVLTreeContains to check for the key and set result accordingly
     return result boolean
@@ -116,7 +116,7 @@ current element is in both sets it gets added to the shared vector which is retu
 allow for two players to see what items they both have.
 
 ```
-multiSetIntersectionWith(multiSet1, multiSet2) {
+intersectionWith(multiSet1, multiSet2) {
     create string vector set1
     create string vector set2
     make the contents of set1 the result of AVLTreeKeys on multiSet1
@@ -142,7 +142,7 @@ functionality will allow for two players to see what items one has that the othe
 items.
 
 ```
-multiSetDifferenceWith(multiSet1, multiSet2) {
+differenceWith(multiSet1, multiSet2) {
     create string vector set1
     create string vector set2
     make the contents of set1 the result of AVLTreeKeys on multiSet1
@@ -170,7 +170,7 @@ num. This will cause a random amount of items to be removed from a player invent
 defeated, causing them to lose items from their inventory that need to be recovered later.
 
 ```
-multiSetRemoveN() {
+removeN() {
     make a string vector called items
     make a string called dropped
     make a size_t called range
@@ -184,11 +184,11 @@ multiSetRemoveN() {
 ```
 
 ## UML Diagram
-
-| "MultiSet"                                                                                                                                                 |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| -Set: AVLTree                                                                                                                                              |
-| -Insert(key: string, value: size_t): void <br/> +Erase(key: string, value: size_t): void <br/> +Size(): size_t <br/> +Contains(key: string): size_t <br/>  | 
+<!-- this should be a comment -->
+| "MultiSet"                                                                                                                                                                                                                                                                                                                                                                     |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -Set: AVLTree                                                                                                                                                                                                                                                                                                                                                                  |
+| -Insert(key: string, value: size_t): void <br/> +Erase(key: string, value: size_t): void <br/> +Size(): size_t <br/> +Find(key: string): size_t <br/> +Contains(key: string): boolean <br/> +intersectionWith(multiSet1: MultiSet, multiSet2: MultiSet): vector<string> <br/> +differenceWith(multiSet1: MultiSet, multiSet2: MultiSet): vector<string> <br/> -removeN(): void | 
 
 ## Trade-off Analysis
 
