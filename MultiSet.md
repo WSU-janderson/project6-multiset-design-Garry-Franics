@@ -84,7 +84,7 @@ exception will be thrown. This functionality will allow the number of specific i
 multiSetFind(key) {
     make a new size_t called result
     use AVLTreeGet to find the value and set result to that value
-    return result
+    return result size_t
 }
 ```
 
@@ -98,11 +98,65 @@ functionality will allow for checking if an inventory contains a specific item.
 multiSetContains(key) {
     make a new boolean called result
     use AVLTreeContains to check for the key and set result accordingly
-    return result
+    return result boolean
 }
 ```
 
 ## Set Operations
+
+Set operations are operations that take two MultiSets and compare their contents. The two set operations I am 
+implementing are `intersectionWith` and `differenceWith`.
+
+### Intersection With
+
+The `intersectionWith` operation will take two MultiSets and find common items between them. It will do this by running
+the AVLTree's keys operation on both inventories and storing the results in two string vectors. Then the contents of
+set1 will be put into an unordered set so the contents of that unordered set can be checked against set2. If the
+current element is in both sets it gets added to the shared vector which is returned at the end. This functionality will
+allow for two players to see what items they both have.
+
+```
+multiSetIntersectionWith(multiSet1, multiSet2) {
+    create string vector set1
+    create string vector set2
+    make the contents of set1 the result of AVLTreeKeys on multiSet1
+    make the contents of set2 the result of AVLTreeKeys on multiSet2
+    create unordered set mixer and put set1 inside
+    create another string vector shared
+    for each element of set2 {
+        if mixer contains that element {
+            add the element to the shared vector
+        }
+    }
+    return shared vector
+}
+```
+
+### Difference With
+
+The `differenceWith` operation will take two MultiSets and find items in the first that are not in the second. It will
+do this by running the AVLTree's keys operation on both inventories and storing the results in two string vectors. Then
+the contents of set2 will be put into an unordered set so the contents of that unordered set can be checked against 
+set1. If the current element is only in set1 it gets added to the unique vector which is returned at the end. This 
+functionality will allow for two players to see what items one has that the other doesn't for situations like trading 
+items.
+
+```
+multiSetDifferenceWith(multiSet1, multiSet2) {
+    create string vector set1
+    create string vector set2
+    make the contents of set1 the result of AVLTreeKeys on multiSet1
+    make the contents of set2 the result of AVLTreeKeys on multiSet2
+    create unordered set divider and put set2 inside
+    create another string vector unique
+    for each element of set1 {
+        if that element is not in set2 {
+            add the element to the unique vector
+        }
+    }
+    return unique vector
+}
+```
 
 ## Extension Feature
 
