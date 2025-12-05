@@ -104,8 +104,8 @@ multiSetContains(key) {
 
 ## Set Operations
 
-Set operations are operations that take two MultiSets and compare their contents. The two set operations I am 
-implementing are `intersectionWith` and `differenceWith`.
+Set operations are operations that take two MultiSets and compare their contents. The two set operations I plan to
+implement are `intersectionWith` and `differenceWith`.
 
 ### Intersection With
 
@@ -159,8 +159,36 @@ multiSetDifferenceWith(multiSet1, multiSet2) {
 ```
 
 ## Extension Feature
+### Remove N 
+
+The `RemoveN` operation will randomly select a key pair and then decrease its value by a random amount. It will do this
+by getting all the keys in the MultiSet using the AVLTree's keys operation and then placing them in a vector called
+items. A string from items will be randomly selected and stored in a single string called dropped. Then the AVLTree's
+get operation will be used to get the value of dropped and store it in a size_t called range. A random number between 0
+and range will then be stored in a size_t called num. Finally, the `Erase` operation will be called using dropped and 
+num. This will cause a random amount of items to be removed from a player inventory. This could be used if a player is
+defeated, causing them to lose items from their inventory that need to be recovered later.
+
+```
+multiSetRemoveN() {
+    make a string vector called items
+    make a string called dropped
+    make a size_t called range
+    make a size_t called num
+    fill the items vector using AVLTreeKeys
+    randomly select one of the keys and set dropped to that key
+    use AVLTreeGet to find the value of dropped and store it in range
+    randomly generate a number between 0 and range and set num to that number
+    call multiSetErase() using dropped and num
+}
+```
 
 ## UML Diagram
+
+| "MultiSet" |
+|------------|
+|------------|
+|------------|
 
 ## Trade-off Analysis
 
