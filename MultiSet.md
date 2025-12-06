@@ -185,9 +185,9 @@ removeN() {
 
 ## UML Diagram
 <!-- I know the bottom line of this looks HORRIBLE, but it makes the actual table look perfect so just bear with me -->
-| MultiSet                                                                                                                                                                                                                                                                                                                                                                     |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| -Set: AVLTree                                                                                                                                                                                                                                                                                                                                                                |
+| MultiSet                                                                                                                                                                                                                                                                                                                                                                       |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -Set: AVLTree                                                                                                                                                                                                                                                                                                                                                                  |
 | -Insert(key: string, value: size_t): void <br/> +Erase(key: string, value: size_t): void <br/> +Size(): size_t <br/> +Find(key: string): size_t <br/> +Contains(key: string): boolean <br/> +intersectionWith(multiSet1: MultiSet, multiSet2: MultiSet): vector<string> <br/> +differenceWith(multiSet1: MultiSet, multiSet2: MultiSet): vector<string> <br/> -removeN(): void | 
 
 This is my UML diagram for the MultiSet class. It has the AVLTree that is working as the base and every operation that
@@ -245,6 +245,14 @@ above.
 
 ## Trade-off Analysis
 
+The other ADT I considered using for this was Sequence. At the time I couldn't picture how an AVLTree could do the job,
+and I'm still having trouble understanding why you would use a Hashtable. I eventually decided to use the AVLTree after
+I thought about how much faster it could retrieve data from itself and that the value could be used to track how many
+copies of an item the inventory contains in a single node. The sequence would have to traverse the entire sequence each
+time it looked for an item, and it would need to create a completely new node for each copy of an item it would store.
+The internal operations of the AVLTree are more complicated than those of the Sequence, but I decided that didn't 
+outweigh the benefits. Here is a table comparing the two:
+
 |            |       AVLTree       | Sequence |
 |:-----------|:-------------------:|:--------:|
 | Complexity |        More         |   Less   |
@@ -252,9 +260,8 @@ above.
 | Insert     | O(Log<sub>2</sub>N) |   O(1)   |
 | Erase      | O(Log<sub>2</sub>N) |   O(1)   |
 | Size       | O(Log<sub>2</sub>N) |   O(1)   |
-| Find       | O(Log<sub>2</sub>N) |   O(1)   |
-| Contains   | O(Log<sub>2</sub>N) |   O(1)   |
-
+| Find       | O(Log<sub>2</sub>N) |   O(N)   |
+| Contains   | O(Log<sub>2</sub>N) |   O(N)   |
 
 ## Alternative Design
 
