@@ -272,7 +272,18 @@ the sequence and the []operator. I would check each node of the sequence one by 
 
 ## Evaluation Plan
 
+To test my design I would first try adding the same key with value 1 around 25 times and then look to make sure my tree
+only has one node with the value of 25. Then I would add that key one more time but with the value of 25 and check if 
+the nodes value has changed to 50. Next I would remove 10 of that key and check if the value is now 40. After I would 
+remove the remaining 40 and see if the node was deleted entirely. Then I would try adding actually different keys to see
+if the nodes are created correctly. I would run size to see if the size is correct. I would run find and contains to see
+if they give proper output. Then I would make a second MultiSet with half its keys shared with the first and test the 
+set functions. Finally, I would make a separate testing function to call removeN and see if it properly removes a random
+number.
+
 ## Conclusion
+
+
 
 ### References
 Blizard, Wayne D. “*Multiset Theory.*” Notre Dame Journal of Formal Logic, vol. 30, no. 1, 1989, pp. 36–66,
