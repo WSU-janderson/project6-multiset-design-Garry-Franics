@@ -265,6 +265,11 @@ outweigh the benefits. Here is a table comparing the two:
 
 ## Alternative Design
 
+Now if I DID use a sequence the insert erase and size operations would be very similar because sequence has the same 
+operations that AVLTree uses in those. Find and contains would be a little different because sequence does not have a
+contains or get operation. Instead, I would traverse the entire sequence using a for loop that iterates over the size of
+the sequence and the []operator. I would check each node of the sequence one by one until the desired key is found.
+
 ## Evaluation Plan
 
 ## Conclusion
