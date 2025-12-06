@@ -245,15 +245,16 @@ above.
 
 ## Trade-off Analysis
 
-|            | AVLTree | Sequence |
-|:-----------|:-------:|:--------:|
-| Complexity |  More   |   Less   |
-| Speed      | Faster  |  Slower  |
-| Insert     | Log~2N  |          |
-| Erase      | Log~2N  |          |
-| Size       | Log~2N  |          |
-| Find       | Log~2N  |          |
-| Contains   | Log~2N  |          |
+|            |       AVLTree       | Sequence |
+|:-----------|:-------------------:|:--------:|
+| Complexity |        More         |   Less   |
+| Speed      |       Faster        |  Slower  |
+| Insert     | O(Log<sub>2</sub>N) |   O(1)   |
+| Erase      | O(Log<sub>2</sub>N) |   O(1)   |
+| Size       | O(Log<sub>2</sub>N) |   O(1)   |
+| Find       | O(Log<sub>2</sub>N) |   O(1)   |
+| Contains   | O(Log<sub>2</sub>N) |   O(1)   |
+
 
 ## Alternative Design
 
