@@ -283,7 +283,15 @@ number.
 
 ## Conclusion
 
+I think that this design is fairly effective given how fast I had to put it together. With more time I would... probably
+have programed the entire thing for real instead of just pseudocode. I also would have made the number of nodes and 
+total of the values member variables that get tracked instead of calculating them. The number of nodes isn't even 
+tracked actually, I was going to make that the extension function, but I decided it was too similar to size, and it just 
+felt lazy. I feel the code is effectively abstracted without anything too complicated. I also think it is well 
+encapsulated with what I decided to make public and private. The composition is tricky because I don't really have any
+member variables to use but the AVLTree code being used here might count?
 
+Anyway that's all I have. Hope its close enough to what you wanted.
 
 ### References
 Blizard, Wayne D. “*Multiset Theory.*” Notre Dame Journal of Formal Logic, vol. 30, no. 1, 1989, pp. 36–66,
